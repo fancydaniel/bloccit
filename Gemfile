@@ -10,6 +10,8 @@ gem 'rails', '4.1.7'
 gem 'devise'
 #Authenticates users
 
+gem 'figaro', '1.0'
+
  group :production do
    gem 'pg'
    gem 'rails_12factor'
