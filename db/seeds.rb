@@ -44,7 +44,7 @@ user = User.first
 user.skip_reconfirmation!
 user.update_attributes!(
   email:   'duribe8@gmail.com',
-  password:  'helloworld'
+  password:  'hamburger'
   )
 
 puts "Seed finished"
