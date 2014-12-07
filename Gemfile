@@ -46,6 +46,8 @@ gem 'spring',        group: :development
 
 gem 'pundit'
 
+gem 'pry'
+
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
 

@@ -6,12 +6,7 @@ class PostsController < ApplicationController
   #   authorize @posts
   # end
 
-  private
-
-  def post_params
-    params.require(:post).permit(:title, :body)
-  end
-
+ 
   def show
     @topic = Topic.find(params[:topic_id])
     @post = Post.find(params[:id])
@@ -76,5 +71,12 @@ class PostsController < ApplicationController
     #   render :edit
     # end
   end
+
+   private
+
+  def post_params
+    params.require(:post).permit(:title, :body)
+  end
+
 
 end
