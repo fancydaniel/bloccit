@@ -46,6 +46,8 @@ gem 'spring',        group: :development
 
 gem 'pundit'
 
+gem 'redcarpet'
+
 gem 'pry'
 
 # Use ActiveModel has_secure_password
