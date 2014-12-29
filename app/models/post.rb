@@ -2,7 +2,7 @@ class Post < ActiveRecord::Base
   has_many :comments
   belongs_to :user
     belongs_to :topic
-    has_many :comments
+    has_many :comments, dependent: :destroy
     mount_uploader :image, ImageUploader
 
   default_scope { order('created_at DESC') }

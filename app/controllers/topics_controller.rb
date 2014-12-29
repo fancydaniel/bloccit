@@ -47,6 +47,21 @@ class TopicsController < ApplicationController
         render :edit
       end
     end
+
+    def destroy
+      @topic = Topic.find(params[:id])
+      name = @topic.name
+
+      authorize @topic
+      if @topic.destroy
+        flash[:notice] = "\"#{name}\" was deleted successfully."
+        redirect_to topics_path
+        #redirect_to @topic, notice: "Topic was destroyed." -- What I originally wrote
+      else
+        flash[:error] = "Error destroying topic. Please try again"
+        render :show  # Originally wrote new, but realized that I'm not creating
+      end
+    end
   end
 
 
