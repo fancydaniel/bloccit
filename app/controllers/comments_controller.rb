@@ -4,7 +4,8 @@ class CommentsController < ApplicationController
     @comment = current_user.comments.build(params.require(:comment).permit(:body))
     post = Post.find(params[:post_id])
     @comment.post = post
-    topic = Topic.find(params[:topic_id])
+    # topic = Topic.find(params[:topic_id])
+    topic = Topic.post.find
     if @comment.save
       flash[:notice] = "Comment was saved."
       redirect_to [topic, post]  # Does this need to be changed? Do we add @comments?
@@ -12,7 +13,8 @@ class CommentsController < ApplicationController
   end
 
   def destroy
-    @topic = Topic.find(params[:topic_id])
+    #@topic = Topic.find(params[:topic_id])
+    topic = Topic.post.find
     @post = @topic.posts.find(params[:post_id])
     @comment = @post.comments.find(params[:id])
 
