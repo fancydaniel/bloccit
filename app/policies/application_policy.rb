@@ -54,7 +54,7 @@ class ApplicationPolicy
   # private  -------  CHECK IF CORRECT
 
   # def can_moderate?
-  #   (record.user || user.admin? || user.moderator?)
+  #   record.user || user.admin? || user.moderator?
   # end
 end
 

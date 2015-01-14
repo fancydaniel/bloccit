@@ -22,7 +22,7 @@
 
       <div id="comments">
         <%= render partial: 'comments/comment', collection: @post.comments %> 
-        <%= render partial: 'comments/form', locals: { topic: @topic, post: @post } %> 
+        <%= render partial: 'comments/form', locals: { post: @post } %> 
       </div>
 
     </div>
