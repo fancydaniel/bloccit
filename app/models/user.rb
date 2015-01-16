@@ -5,6 +5,8 @@ class User < ActiveRecord::Base
          :recoverable, :rememberable, :trackable, :validatable, :confirmable
   has_many :posts
   has_many :comments
+  has_many :votes, dependent: :destroy # added dependent, destroy so it willbe gone if destroyed
+
     mount_uploader :avatar, AvatarUploader
 
   def admin?

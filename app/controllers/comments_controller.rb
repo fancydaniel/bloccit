@@ -14,11 +14,11 @@ class CommentsController < ApplicationController
   def destroy
     #@topic = Topic.find(params[:topic_id])
     # topic = Topic.post.find <-- remove this
-    @post = @topic.posts.find(params[:post_id])
-    @comment = @post.comments.find(params[:id])
+    post = Post.find(params[:post_id])
+    comment = post.comments.find(params[:id])
 
-    authorize @comment
-    if @comment.destroy
+    authorize comment
+    if comment.destroy
       flash[:notice] = "Comment was removed."
       redirect_to [post.topic, post]
     else
