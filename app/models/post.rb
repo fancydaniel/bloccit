@@ -23,8 +23,8 @@ class Post < ActiveRecord::Base
 
   validates :title, length: { minimum: 5 }, presence: true
   validates :body, length: { minimum: 20 }, presence: true
-  # validates :topic, presence: true
-  # validates :user, presence: true
+  validates :topic, presence: true
+  validates :user, presence: true
 
   # def markdown_title
   #   render_as_markdown title
@@ -40,5 +40,9 @@ class Post < ActiveRecord::Base
 
     update_attribute(:rank, new_rank)
   end  
+
+  def create_vote
+    user.votes.create(value: 1, post: self)
+  end
 
 end
