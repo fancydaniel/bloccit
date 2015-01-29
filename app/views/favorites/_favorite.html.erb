@@ -1,0 +1,10 @@
+<div class="favorite">
+  <% if favorites = current_user.favorited(post) %>
+    Favorited
+  <% else %>
+    Want to favorite this?
+  <%= link_to [post, Favorite.new], class: 'btn btn-primary' do %>
+    <i class="glyphicon glyphicon-star"> </i>&nbsp; Favorite
+  <% end %>
+  <% end %>
+</div>
