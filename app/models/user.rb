@@ -6,7 +6,7 @@ class User < ActiveRecord::Base
   has_many :posts
   has_many :comments
   has_many :votes, dependent: :destroy # added dependent, destroy so it willbe gone if destroyed
-  has_many :favorites
+  has_many :favorites, dependent: :destroy
     mount_uploader :avatar, AvatarUploader
 
   def admin?

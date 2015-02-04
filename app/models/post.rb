@@ -2,7 +2,7 @@ class Post < ActiveRecord::Base
   has_many :comments
 
   has_many :votes  # Added
-  has_many :favorites
+  has_many :favorites, dependent: :destroy
   
   belongs_to :user
     belongs_to :topic
