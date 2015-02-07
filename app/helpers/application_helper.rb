@@ -18,4 +18,15 @@ module ApplicationHelper
   def my_name
     "Daniel Uribe"
   end
+
+  
+
+def vote_link_classes(post,direction)
+  if direction == "up" && (current_user.voted(post) && current_user.voted(post).up_vote)
+    "glyphicon glyphicon-chevron-up voted"
+  else direction = "down" && (current_user.voted(post) && current_user.voted(post).down_vote)
+    "glyphicon glyphicon-chevron-down voted"
+  end
+end
+
 end
