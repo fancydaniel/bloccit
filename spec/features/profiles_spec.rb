@@ -5,17 +5,22 @@ describe 'Visiting profiles' do
   include TestFactories
 
   before do
+    @comment = Comment.new(user: @user, body: "A Comment", post: @post)
     @user = authenticated_user
     @post = associated_post(user: @user)
-    @comment = Comment.new(user: @user, body: "A Comment")
-    allow(@comment).to receive(:send_favorite_emails)
-    @comment.save
+    
   end
 
   describe "not signed in" do
     
     it "shows profile" do
       visit user_path(@user)
+
+      
+    allow(@comment).to receive(:send_favorite_emails)
+    @comment.save  
+
+      save_and_open_page
       expect(current_path).to eq(user_path(@user))
 
       expect( page ).to have_content(@user.name)

@@ -5,23 +5,24 @@ class Post < ActiveRecord::Base
   has_many :favorites, dependent: :destroy
   
   belongs_to :user
-    belongs_to :topic
-    has_many :comments, dependent: :destroy
-    mount_uploader :image, ImageUploader
+  belongs_to :topic
+  has_many :comments, dependent: :destroy
+  mount_uploader :image, ImageUploader
 
-    def up_votes
-      votes.where(value: 1).count
-    end
+  def up_votes
+    votes.where(value: 1).count
+  end
 
-    def down_votes
-      votes.where(value: -1).count
-    end
+  def down_votes
+    votes.where(value: -1).count
+  end
 
-    def points          #Ask about this method
-      votes.sum(:value)  
-    end
+  def points          #Ask about this method
+    votes.sum(:value)  
+  end
 
   default_scope { order('rank DESC') }
+  scope :visible_to, ->(user) { user ? all : joins(:topic).where('topics.public' => true) }
 
   validates :title, length: { minimum: 5 }, presence: true
   validates :body, length: { minimum: 20 }, presence: true

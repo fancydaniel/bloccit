@@ -21,12 +21,32 @@ module ApplicationHelper
 
   
 
+# def vote_link_classes(post,direction)
+#   if direction == "up" 
+#     if (current_user.voted(post) && current_user.voted(post).up_vote?)
+#       "glyphicon glyphicon-chevron-up voted"
+#     else
+#       "glyphicon glyphicon-chevron-up"
+#     end
+#   else 
+#     if (current_user.voted(post) && current_user.voted(post).down_vote?)
+#       "glyphicon glyphicon-chevron-down voted"
+#     else
+#       "glyphicon glyphicon-chevron-down"
+#     end
+#   end
+# end
+
 def vote_link_classes(post,direction)
-  if direction == "up" && (current_user.voted(post) && current_user.voted(post).up_vote)
-    "glyphicon glyphicon-chevron-up voted"
-  else direction = "down" && (current_user.voted(post) && current_user.voted(post).down_vote)
-    "glyphicon glyphicon-chevron-down voted"
+  
+  if (current_user.voted(post) && current_user.voted(post).send("#{direction}_vote?"))
+    "glyphicon glyphicon-chevron-#{direction} voted"
+  else
+    "glyphicon glyphicon-chevron-#{direction}"
   end
 end
 
+
 end
+
+# "glyphicon glyphicon-chevron-down #{(current_user.voted(post) && current_user.voted(post).down_vote?) ? 'voted' : '' }"
