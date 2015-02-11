@@ -15,6 +15,7 @@ gem 'figaro', '1.0'
  group :production do
    gem 'pg'
    gem 'rails_12factor'
+   gem 'newrelic_rpm'
  end
  
  group :development do
