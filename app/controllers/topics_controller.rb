@@ -17,8 +17,9 @@ class TopicsController < ApplicationController
 
   def show
     @topic = Topic.find(params[:id])
-    @posts = @topic.posts
+    # @posts = @topic.posts <-- old method which doesn't match what was on checkpoint
     authorize @topic
+    @posts = @topic.posts.includes(:user).paginate(page: params[:page], per_page: 10)
   end
 
   def edit
