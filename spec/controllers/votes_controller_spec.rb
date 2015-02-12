@@ -8,8 +8,10 @@ describe VotesController do
   describe '#up_vote' do
     it "adds an up-vote to the post" do
       request.env["HTTP_REFERER"] = '/'
-      @user = authenticated_user
-      @post = associated_post
+      # @user = authenticated_user
+      # @post = associated_post
+      @post = create(:post)
+      @user = create(:user)
       sign_in @user
 
       expect {

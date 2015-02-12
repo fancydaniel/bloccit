@@ -5,9 +5,13 @@ describe 'Visiting profiles' do
   include TestFactories
 
   before do
-    @comment = Comment.new(user: @user, body: "A Comment", post: @post)
-    @user = authenticated_user
-    @post = associated_post(user: @user)
+    # @comment = Comment.new(user: @user, body: "A Comment", post: @post)
+    # @user = authenticated_user
+    # @post = associated_post(user: @user)
+    @user = create(:user)
+    @post = create(:post, user: @user)
+    @comment = build(:comment, user @user, body: "A Comment")
+    @comment.save
     
   end
 
