@@ -2,7 +2,7 @@ require 'rails_helper'
 
 describe VotesController do 
   
-  include TestFactories
+  # include TestFactories
   include Devise::TestHelpers
 
   describe '#up_vote' do

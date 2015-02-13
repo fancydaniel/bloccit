@@ -2,7 +2,7 @@ require 'rails_helper'
 
 describe FavoritesController do 
 
-  include TestFactories
+  # include TestFactories
   include Devise::TestHelpers
 
   before do

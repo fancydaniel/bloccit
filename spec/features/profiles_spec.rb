@@ -2,7 +2,7 @@ require 'rails_helper'
 
 describe 'Visiting profiles' do 
 
-  include TestFactories
+  # include TestFactories
 
   before do
     # @comment = Comment.new(user: @user, body: "A Comment", post: @post)
