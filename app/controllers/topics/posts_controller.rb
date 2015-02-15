@@ -65,15 +65,6 @@ class Topics::PostsController < ApplicationController
       flash[:error] = "There was an error saving the post. Please try again."
       render :new
     end
-
-    # old code before posts were nested under topics
-    # @post = Post.find(params[:id])
-    # authorize @post
-    # if @post.update(params.require(:post).permit(:title, :body))
-    #   redirect_to @post
-    # else
-    #   render :edit
-    # end
   end
 
   def destroy
