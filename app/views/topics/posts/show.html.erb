@@ -32,11 +32,14 @@
     </div>
 
       <%= render partial: 'favorites/favorite', locals: { post: @post } %>
-
-      <div id="comments">
-        <%= render partial: 'comments/comment', collection: @comments %>
-
-        <!-- collection above was @post.comments --> 
+      <h2>Comments</h2>
+      <div class='js-comments'>
+        <div id="comments">
+          <%= render partial: 'comments/comment', collection: @comments %>
+        </div>  
+      </div>
+        <!-- collection above was @post.comments -->
+      <div class="new-comment"> 
         <%= render partial: 'comments/form', locals: { post: @post } %> 
       </div>
 
